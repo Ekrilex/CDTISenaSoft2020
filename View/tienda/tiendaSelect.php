@@ -1,3 +1,34 @@
+<div class="page-inner">
+<div class="page-header">
+		<h4 class="page-title">Tiendas</h4>
+		<ul class="breadcrumbs">
+			<li class="nav-home">
+				<a href="#">
+					<i class="flaticon-home"></i>
+				</a>
+			</li>
+			<li class="separator">
+				<i class="flaticon-right-arrow"></i>
+			</li>
+			<li class="nav-item">
+				<a href="#">Panel de control</a>
+			</li>
+			<li class="separator">
+				<i class="flaticon-right-arrow"></i>
+			</li>
+			<li class="nav-item">
+				<a href="#">Tiendas</a>
+			</li>
+			<li class="separator">
+				<i class="flaticon-right-arrow"></i>
+			</li>
+			<li class="nav-item">
+				<a href="#">Consultar Tiendas</a>
+			</li>
+		</ul>
+	</div>
+
+
 <table id="example" class="display table" style="width:100%">
 	<thead class="thead-dark">
 		<tr>
@@ -7,6 +38,7 @@
 			<th>Nombre Comercial</th>
 			<th>Correo electrónico</th>
 			<th>Telefono</th>
+			<th>Editar</th>
 
 		</tr>
 	</thead>
@@ -20,6 +52,7 @@
 				<td><?php echo $value->emp_nomcom; ?></td>
 				<td><?php echo $value->emp_corfis; ?></td>
 				<td><?php echo $value->emp_telfis; ?></td>
+				<td><button class="btn btn-info">Editar</button></td>
 				
 			</tr>
 		<?php endforeach; ?>
@@ -33,9 +66,11 @@
 			<th>Nombre Comercial</th>
 			<th>Correo electrónico</th>
 			<th>Telefono</th>
+			<th>Editar</th>
 		</tr>
 	</tfoot>
 </table>
+</div>
 <script>
 	$(document).ready(function() {
 		$('#example').DataTable( {

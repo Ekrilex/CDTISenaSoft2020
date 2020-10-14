@@ -15,7 +15,7 @@
 		public function crear(){
 
 
-			include_once '../View/tienda/tiendaView.php';
+			include_once '../View/tienda/registrarTienda.php';
 
 		}
 
