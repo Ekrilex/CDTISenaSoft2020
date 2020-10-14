@@ -211,12 +211,12 @@
 									<div class="collapse" id="subnav1">
 										<ul class="nav nav-collapse subnav">
 											<li>
-												<a href="#">
+												<a href="<?php echo getUrl('Cliente','Cliente','crear')?>">
 													<span class="sub-item">Registrar Cliente</span>
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="<?php echo getUrl('Cliente','Cliente','index')?>">
 													<span class="sub-item">Consultar Cliente</span>
 												</a>
 											</li>
@@ -231,12 +231,12 @@
 									<div class="collapse" id="subnav2">
 										<ul class="nav nav-collapse subnav">
 											<li>
-												<a href="#">
+												<a href="<?php echo getUrl('tienda','tienda','crear'); ?>">
 													<span class="sub-item">Registrar Tienda</span>
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="<?php echo getUrl('tienda','tienda','index'); ?>">
 													<span class="sub-item">Consultar Tienda</span>
 												</a>
 											</li>
