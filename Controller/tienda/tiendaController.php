@@ -47,7 +47,7 @@
 			$this->model->insertar("insert into tbl_empresa (emp_razsoc, emp_nit, emp_nomcom, emp_corfis, emp_telfis) values('".$empresa->emp_razsoc."',".$empresa->emp_nit.",'".$empresa->emp_nomcom."','".$empresa->emp_corfis."','".$empresa->emp_telfis."')");
 
 			redirect(getUrl('tienda','tienda','index'));
-			//include_once '../View/tienda/registrarTienda.php';
+			
 		}
 
 
@@ -60,10 +60,45 @@
 
 
 		public function editar(){
-			$tienda =new tbl_empresa();
-
-
 			
+			$empresa =new tbl_empresa();
+
+			$empresa->emp_id=$_REQUEST['emp_id'];
+			$empresa->emp_razsoc=$_REQUEST['emp_razsoc'];
+			$empresa->emp_nit=$_REQUEST['emp_nit'];
+			$empresa->emp_nomcom=$_REQUEST['emp_nomcom'];
+			$empresa->emp_corfis=$_REQUEST['emp_corfis'];
+			$empresa->emp_telfis=$_REQUEST['emp_telfis'];
+
+ 			$sql="UPDATE tbl_empresa set emp_razsoc='".$empresa->emp_razsoc."', emp_nit=$empresa->emp_nit, emp_nomcom='".$empresa->emp_nomcom."',emp_corfis='".$empresa->emp_corfis."', emp_telfis='".$empresa->emp_telfis."' WHERE emp_id=$empresa->emp_id";
+			$this->model->editar($sql);	
+			redirect(getUrl('tienda','tienda','index'));
+
+		}
+
+		public function cambiarEstado(){
+
+			$emp_id = $_REQUEST['emp_id'];
+			$estado = $_REQUEST['estado'];
+
+			//echo "<script>alert('".$cli_id." : ".$estado."')</script>";
+
+			if($estado == 1){
+
+				$sql = "UPDATE tbl_empresa SET emp_estado = 2 WHERE emp_id = ".$emp_id."";
+
+			}else{
+
+				$sql = "UPDATE tbl_empresa SET emp_estado = 1 WHERE emp_id = ".$emp_id."";
+			}
+
+			$inhabilitacion = $this->model->eliminar($sql);
+
+			$sql = "SELECT * FROM tbl_empresa";
+
+			$consultaEmpresa = $this->model->consultar($sql);
+
+			include_once '../View/tienda/cambiaEstado.php';
 
 		}
 

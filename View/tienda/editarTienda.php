@@ -40,7 +40,7 @@
 				<div class="form-row">
 					<div class="form-group col-md-4">
 						<label>Numero de identificacion</label>
-						<input type="number" class="form-control" name="emp_id" placeholder="Código registro" value="<?php echo $value->emp_id; ?>" disabled>
+						<input type="number" class="form-control" name="emp_id" placeholder="Código registro" value="<?php echo $value->emp_id; ?>" readonly>
 					</div>
 					<div class="form-group col-md-4">
 						<label>Razón Social</label>
