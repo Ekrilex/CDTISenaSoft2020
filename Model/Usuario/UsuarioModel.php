@@ -20,6 +20,7 @@ class tbl_usuario extends MasterModel
 	public $rol_id;
 	public $rol_nombre;
 
+
 }
 
 
