@@ -28,57 +28,56 @@
       </li>
     </ul>
   </div>
+
+<?php foreach ($usuario as $value){ ?>
+
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
         <div class="card-title">Registrar Usuario</div>
       </div>
       <div class="card-body">
-   <form action="<?php echo getUrl("Usuario","Usuario","postCreate") ?>" method="post">
+   <form action="<?php echo getUrl("Usuario","Usuario","postUpdate") ?>" method="post">
         <div class="form-row">
           <div class="form-group col-md-4">
             <label>Nombres</label>
-            <input type="text" class="form-control" name="usu_nombre" required placeholder="Nombres">
+            <input type="text" class="form-control" name="usu_nombre" required placeholder="Nombres" value="<?php echo $value->usu_nombre; ?>">
+            <input type="hidden" name="usu_id" value="<?php echo $value->usu_id; ?>">
           </div>
           <div class="form-group col-md-4">
             <label>Apellidos</label>
-            <input type="text" class="form-control" name="usu_apellido"  required placeholder="Apellidos">
+            <input type="text" class="form-control" name="usu_apellido"  required placeholder="Apellidos" value="<?php echo $value->usu_apelld; ?>">
           </div> 
           <div class="form-group col-md-4">
             <label>Telefono</label>
-            <input type="number" class="form-control" name="usu_telefn"  required placeholder="numero de telefono celular">
+            <input type="number" class="form-control" name="usu_telefn"  required placeholder="numero de telefono celular" value="<?php echo $value->usu_telefn; ?>">
           </div> 
         </div>
         <div class="form-row">
           <div class="form-group col-md-4">
             <label>Direccion</label>
-            <input type="text" class="form-control" name="usu_direcc"  required placeholder="Direccion de residencia">
+            <input type="text" class="form-control" name="usu_direcc"  required placeholder="Direccion de residencia" value=" <?php echo $value->usu_direcc; ?>">
           </div>
           <div class="form-group col-md-4">
             <label>Correo electronico</label>
-            <input type="text" class="form-control" name="usu_correo"  required placeholder="Exampple@example.com">
+            <input type="text" class="form-control" name="usu_correo"  required placeholder="Exampple@example.com" value="<?php echo $value->usu_correo; ?>">
           </div> 
           <div class="form-group col-md-4">
             <label>Rol de usuario</label>
           <select name="usu_rolid"  required class="form-control">
-            <option>Seleccionar..</option>
             <?php
-
-            foreach ($rol as $value){
+               
+            if ($value->usu_rolid == $value->rol_id){
               
+              echo "<option value='".$value->rol_id."' selected>".$value->rol_nombre."</option>";
+            }else{
               echo "<option value='".$value->rol_id."'>".$value->rol_nombre."</option>";
+
             }
+
             
             ?>
           </select>
-          </div> 
-          <div class="form-group col-md-4">
-            <label>Nickname</label>
-            <input type="text" class="form-control" name="usu_login" placeholder="Nombre de usuario">
-          </div> 
-          <div class="form-group col-md-4">
-            <label>pass</label>
-            <input type="password" class="form-control" name="usu_passwod" placeholder="*********">
           </div>                     
         </div>
         <div class="card-action">
@@ -88,5 +87,8 @@
       </form>
       </div>
     </div>
+   <?php
+    }
+    ?>
   </div>
 </div>

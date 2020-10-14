@@ -59,7 +59,7 @@
 				$insercion = $this->conexion->prepare($sql);
 				$insercion->execute();
 
-				return $insercion->fetchALL(PDO::FETCH_OBJ);
+				//return $insercion->fetchALL(PDO::FETCH_OBJ);
 
 			}catch(Exception $e){
 

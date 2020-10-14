@@ -276,7 +276,7 @@
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="<?php echo getUrl('Usuario','Usuario','index');?>">
 													<span class="sub-item">Consultar Usuario</span>
 												</a>
 											</li>
