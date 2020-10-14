@@ -55,7 +55,7 @@ $(document).ready(function(){
 			type: "POST",
 			data: "cli_id="+id+"&estado="+estado,
 			success: function(datos){
-
+                  
 				$('#tbodyConsultarCliente').html(datos);
 
 			}
