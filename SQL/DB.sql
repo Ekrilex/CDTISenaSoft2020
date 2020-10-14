@@ -1,7 +1,7 @@
 create table tbl_estado(
 	est_id int(1) auto_increment primary key,
 	est_descrp varchar(1) not null
-	
+);
 
 
 
@@ -80,7 +80,7 @@ create table tbl_detalle_proveedor_producto(
 );
 
 create table tbl_cliente(
-	cli_id int(3) auto_increment not null,
+	cli_id int(3) not null,
 	cli_nit int(10) primary key,
 	cli_nombre varchar(20) not null,
 	cli_apelld varchar(20) not null,
@@ -137,8 +137,6 @@ create table tbl_estado_factura(
 	etf_id int(1) auto_increment primary key,
 	etf_descrp varchar(9) not null
 );
-
-
 
 create table tbl_borrador_factura(
 	fab_id int(10) auto_increment primary key,
