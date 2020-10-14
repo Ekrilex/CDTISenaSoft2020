@@ -17,6 +17,9 @@ class tbl_usuario extends MasterModel
 	public $usu_estado;
 	public $usu_correo;
 
+	public $rol_id;
+	public $rol_nombre;
+
 }
 
 

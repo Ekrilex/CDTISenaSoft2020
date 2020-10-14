@@ -46,6 +46,11 @@
 				$insercion = $this->conexion->prepare($sql);
 				$insercion->execute();
 
+<<<<<<< HEAD
+=======
+				//return $insercion->fetchALL(PDO::FETCH_OBJ);
+
+>>>>>>> 63bf3f86c96bda8f803a8684281645c4fa04c5fe
 			}catch(Exception $e){
 
 				die($e->getMessage());
