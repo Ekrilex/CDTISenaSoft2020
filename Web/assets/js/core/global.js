@@ -64,7 +64,7 @@ $(document).ready(function(){
 
 	});
 
-
+	/////////////////Fin jquery cliente///////////////////////
 
 	$(document).on("click",".cambiaEstado",function(){
 
