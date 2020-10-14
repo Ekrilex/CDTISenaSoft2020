@@ -43,18 +43,24 @@
 			  	$_SESSION['registrar'] = "<span class='text-danger'>El Cliente <b>".$cliente->cli_nombre."</b> Se ha registrado satisfactoriamente</span>";
 			  }
 
-			redirect(getUrl("Cliente","Cliente","index"));
+			redirect(getUrl("Cliente","Cliente","crear"));
 
 
 		}
 
 		public function index(){
-
+ 
 			$sql = "SELECT * FROM tbl_cliente WHERE cli_estado = 2";
 
 			$consultaClientes = $this->model->consultar($sql);
 			//var_dump($consultaClientes);
 			include_once '../View/Cliente/index.php';
+
+		}
+
+		public function editar(){
+
+			$cli_id = $_GET['cli_id'];
 
 		}
 

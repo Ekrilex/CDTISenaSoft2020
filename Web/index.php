@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+
 	include_once '../Lib/helpers.php';
 	include_once '../View/Partials/HtmlHead.php';
 
