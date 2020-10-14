@@ -65,6 +65,29 @@ $(document).ready(function(){
 	});
 
 
+	$(document).on("click",".estadoUsuario",function(){
+
+		var url = $(this).attr("data-url");
+		var id = $(this).attr("data-id");
+		var estado = $(this).attr("data-estado");
+
+		//alert(url+" : "+id+" : "+estado);
+
+		$.ajax({
+
+			url: url,
+			type: "POST",
+			data: "usu_id=" + id + "&usu_estado=" + estado,
+			success: function(datos){
+                  //alert(datos);
+				$('tbody').html(datos);
+
+			}
+
+		});
+
+	});
+
 
 
 });

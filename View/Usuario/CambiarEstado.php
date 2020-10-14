@@ -1,4 +1,4 @@
-	<?php
+		<?php
 		foreach ($usuario as $value):?>
 			<tr>
 				<td><?php echo $value->usu_id; ?></td>
@@ -21,10 +21,10 @@
 
 				<?php if($value->usu_estado == 1) {?>
 
-					<button type="button" data-id="<?php echo $value->usu_id;?>" data-url="<?php echo getUrl('Usuario','Usuario','postDelete',false,'ajax');?>" data-estado="1" class="btn btn-danger cambiaEstado" >Inhabilitar</button>
+					<button type="button" data-id="<?php echo $value->usu_id;?>" data-url="<?php echo getUrl('Usuario','Usuario','postDelete',false,'ajax');?>" data-estado="1" class="btn btn-danger estadoUsuario" >Inhabilitar</button>
 
 					<?php }else{?>
-						<button type="button" data-id="<?php echo $value->usu_id;?>" data-url="<?php echo getUrl('Usuario','Usuario','postDelete',false,'ajax');?>" data-estado="2" class="btn btn-success cambiaEstado" >Habilitar</button>
+						<button type="button" data-id="<?php echo $value->usu_id;?>" data-url="<?php echo getUrl('Usuario','Usuario','postDelete',false,'ajax');?>" data-estado="2" class="btn btn-success estadoUsuario" >Habilitar</button>
 					<?php } ?>
 			</tr>
 		<?php endforeach; ?>

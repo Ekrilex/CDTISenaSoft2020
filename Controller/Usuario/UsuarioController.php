@@ -100,29 +100,32 @@ class UsuarioController
 	}
 
 	
-	public function postDelete(){
+	public function postDelete (){
 
 		//0 = inhabilitado y 1= habilitado//
 
-		$usuario=new tbl_usuario();
-
-		$usuario->usu_id=$_REQUEST['cli_id'];      
-		$usuario->usu_estado=$_REQUEST['estado'];
+		$usu_id=$_REQUEST['usu_id'];      
+		$usu_estado=$_REQUEST['usu_estado'];
 		
-		echo "<script>alert('".$usuario->usu_id." : ".$usuario->usu_estado."')</script>";
-        if ($usuarios->usu_estado==1) {
-        $sql="UPDATE tbl_usuario set usu_estado='1' WHERE usu_id='$usuario->usu_id'";
+		//echo $usu_id ." , ".$usu_estado;
+
+		//echo "<script>alert('".$usu_id." : ".$usu_estado."')</script>";
+  
+       if ($usu_estado==1) {
+        $sql="UPDATE tbl_usuario set usu_estado='2' WHERE usu_id='$usu_id'";
+		$usuarioss=$this->model->editar($sql);
        
-        }else if ($usuarios->usu_estado==2){
-        $sql="UPDATE tbl_usuario set usu_estado='2' WHERE usu_id='$usuario->usu_id'";
+        }else if ($usu_estado==2){
+        $sql="UPDATE tbl_usuario set usu_estado='1' WHERE usu_id='$usu_id'";
+        		$usuarioss=$this->model->editar($sql);
+
         }
 
-		$usuarioss=$this->model->editar($sql);
+		$sql="SELECT * FROM tbl_usuario as u , tbl_rol as r WHERE u.usu_rolid=r.rol_id";
 
-        $sql="SELECT * FROM tbl_usuario as u , tbl_rol as r WHERE u.usu_rolid=r.rol_id";
 		$usuario=$this->model->consultar($sql);
 		
-		include_once '../view/Usuario/cambiarEstado.php';
+	    include_once '../View/Usuario/CambiarEstado.php';
 
 	
 	}
