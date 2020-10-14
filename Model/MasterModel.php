@@ -26,7 +26,10 @@
 				$consulta = $this->conexion->prepare($sql);
 				$consulta->execute();
 
+				//echo "funciono la consulta<br>";
+
 				return $consulta->fetchALL(PDO::FETCH_OBJ);
+
 
 			}catch(Exception $e){
 
@@ -43,8 +46,6 @@
 				$insercion = $this->conexion->prepare($sql);
 				$insercion->execute();
 
-				return $insercion->fetchALL(PDO::FETCH_OBJ);
-
 			}catch(Exception $e){
 
 				die($e->getMessage());
@@ -59,8 +60,6 @@
 				$insercion = $this->conexion->prepare($sql);
 				$insercion->execute();
 
-				return $insercion->fetchALL(PDO::FETCH_OBJ);
-
 			}catch(Exception $e){
 
 				die($e->getMessage());
@@ -74,8 +73,6 @@
 
 				$insercion = $this->conexion->prepare($sql);
 				$insercion->execute();
-
-				return $insercion->fetchALL(PDO::FETCH_OBJ);
 
 			}catch(Exception $e){
 
