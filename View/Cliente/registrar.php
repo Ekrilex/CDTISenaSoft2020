@@ -2,24 +2,19 @@
 <div class="page-inner">
 	<?php 
 
-		//if(isset($_SESSION['registrar'])){
+		if(isset($_SESSION['registrar'])){
 
 	?>
-		 <!-- <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert">
-			<script>
-				setTimeout(function(){
-
-					$("#alert").html("<?php //echo "<span class='text-danger'>".$_SESSION['registrar']."</span>'<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</span></button>"?>").fadeOut(5000);
-
-					
-				}, 1000);
-			</script>
-
-		</div>  -->
+		 <div class="alert alert-warning alert-dismissible fade show" role="alert">
+			  <?php echo $_SESSION['registrar'];?>
+			 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			</button>
+		 </div>
 
 	<?php 
 
-		//}
+		}
 		unset($_SESSION['registrar']);
 	?>
 	<div class="page-header">
@@ -56,11 +51,11 @@
 				<div class="card-title">Registrar Cliente</div>
 			</div>
 			<div class="card-body">
-				<form id="formRegistrarCliente" action="<?php echo getUrl("Cliente","Cliente","guardar") ?>" method="POST">
+				<form id="formCliente" action="<?php echo getUrl("Cliente","Cliente","guardar") ?>" method="POST">
 					<div class="form-row">
 						<div class="form-group col-md-4">
 							<label>Numero de identificacion</label>
-							<input type="number" id="nit" class="form-control novacio" name="cli_nit" min="10" placeholder="Numero Identificacion" maxlength="10">
+							<input type="number" id="nit" class="form-control novacio" name="cli_nit" min="1000000000" placeholder="Numero Identificacion" maxlength="10">
 						</div>
 						<div class="form-group col-md-4">
 							<label>Nombres del cliente</label>
@@ -79,11 +74,11 @@
 						</div>
 						<div class="form-group col-md-4">
 							<label>Telefono Celular Del Cliente</label>
-							<input type="number" id="celular" class="form-control novacio" name="cli_telefn" min="10" placeholder="Telefono Celular" maxlength="10">
+							<input type="number" id="celular" class="form-control novacio" name="cli_telefn" min="1000000000" placeholder="Telefono Celular" maxlength="10">
 						</div> 
 						<div class="form-group col-md-4">
 							<label>Correo Electronico del cliente</label>
-							<input type="email" id="correo" class="form-control novacio" name="cli_correo" placeholder="Correo Electronico" maxlength="20">
+							<input type="email" id="correo" class="form-control novacio" name="cli_correo" placeholder="Correo Electronico" maxlength="60">
 						</div> 
 					</div>
 					<div class="card-action">
