@@ -30,7 +30,7 @@
 
 
 <table id="example" class="display table" style="width:100%">
-	<thead class="thead-dark">
+	<thead class="bg-primary text-white">
 		<tr>
 			<th>ID</th>
 			<th>Razon Social Empresa</th>
@@ -52,13 +52,17 @@
 				<td><?php echo $value->emp_nomcom; ?></td>
 				<td><?php echo $value->emp_corfis; ?></td>
 				<td><?php echo $value->emp_telfis; ?></td>
-				<td><button class="btn btn-info">Editar</button></td>
+				<td>
+					<a href="<?php echo getUrl('tienda','tienda','edit',array('emp_id' => $value->emp_id)) ?>" class="btn btn-info" >Editar</a>
+					
+				</td>
+
 				
 			</tr>
 		<?php endforeach; ?>
 		
 	</tbody>
-	<tfoot class="thead-dark">
+	<tfoot class="bg-primary text-white">
 		<tr>
 			<th>ID</th>
 			<th>Razon Social Empresa</th>

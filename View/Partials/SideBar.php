@@ -283,6 +283,26 @@
 										</ul>
 									</div>
 								</li>
+								<li>
+									<a data-toggle="collapse" href="#subnav5">
+										<span class="sub-item">Proovedor</span>
+										<span class="caret"></span>
+									</a>
+									<div class="collapse" id="subnav5">
+										<ul class="nav nav-collapse subnav">
+											<li>
+												<a href="<?php  echo getUrl("Usuario","Usuario","getCreate");?>">
+													<span class="sub-item">Registrar Proovedor</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<span class="sub-item">Consultar Proovedor</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
 								<!-- <li>
 									<a href="#">
 										<span class="sub-item">Level 1</span>

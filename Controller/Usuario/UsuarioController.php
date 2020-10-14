@@ -105,12 +105,26 @@ class UsuarioController
 		//0 = inhabilitado y 1= habilitado//
 
 		$usuario=new tbl_usuario();
-		$usuario->usu_id=$_REQUEST['usu_id'];      
-		$usuario->usu_estado=$_REQUEST['usu_estado'];
-		
-        $sql="UPDATE tbl_usuario set usu_estado='$usuario->usu_estado'";
 
-		$usuarios=$this->model->editar($sql);	
+		$usuario->usu_id=$_REQUEST['cli_id'];      
+		$usuario->usu_estado=$_REQUEST['estado'];
+		
+		echo "<script>alert('".$usuario->usu_id." : ".$usuario->usu_estado."')</script>";
+        if ($usuarios->usu_estado==1) {
+        $sql="UPDATE tbl_usuario set usu_estado='1' WHERE usu_id='$usuario->usu_id'";
+       
+        }else if ($usuarios->usu_estado==2){
+        $sql="UPDATE tbl_usuario set usu_estado='2' WHERE usu_id='$usuario->usu_id'";
+        }
+
+		$usuarioss=$this->model->editar($sql);
+
+        $sql="SELECT * FROM tbl_usuario as u , tbl_rol as r WHERE u.usu_rolid=r.rol_id";
+		$usuario=$this->model->consultar($sql);
+		
+		include_once '../view/Usuario/cambiarEstado.php';
+
+	
 	}
    
 /*
