@@ -1,1 +1,0 @@
-# Equipo-CDTI_SenaSoft2020

@@ -23,7 +23,7 @@
 
 			try{
 
-				$consulta-> = $this->conexion->prepare($sql);
+				$consulta = $this->conexion->prepare($sql);
 				$consulta->execute();
 
 				return $consulta->fetchALL(PDO::FETCH_OBJ);
@@ -40,7 +40,7 @@
 
 			try{
 
-				$insercion-> = $this->conexion->prepare($sql);
+				$insercion = $this->conexion->prepare($sql);
 				$insercion->execute();
 
 				return $insercion->fetchALL(PDO::FETCH_OBJ);
@@ -56,7 +56,7 @@
 
 			try{
 
-				$insercion-> = $this->conexion->prepare($sql);
+				$insercion = $this->conexion->prepare($sql);
 				$insercion->execute();
 
 				return $insercion->fetchALL(PDO::FETCH_OBJ);
@@ -72,7 +72,7 @@
 
 			try{
 
-				$insercion-> = $this->conexion->prepare($sql);
+				$insercion = $this->conexion->prepare($sql);
 				$insercion->execute();
 
 				return $insercion->fetchALL(PDO::FETCH_OBJ);
