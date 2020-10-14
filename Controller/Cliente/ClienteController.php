@@ -97,13 +97,23 @@
 
 			$actualizacion = $this->model->editar($sql);
 
-			if($actualizacion){
-			  	$_SESSION['editar'] = "<span class='text-danger'>El Cliente <b>".$cliente->cli_nombre."</b> Se ha Actualizado satisfactoriamente</span>";
+			try{
 
-			}else{
+				$actualizacion = $this->model->editar($sql);
+				$_SESSION['editar'] = "<span class='text-danger'>El Cliente <b>".$cliente->cli_nombre."</b> Se ha Actualizado satisfactoriamente</span>";
+
+			}catch(Excepction $e){
 			  	$_SESSION['editarError'] = "<span class='text-danger'>El Cliente <b>".$cliente->cli_nombre."</b> Se ha Actualizado satisfactoriamente</span>";
 
 			}
+
+			// if($actualizacion){
+			//   	$_SESSION['editar'] = "<span class='text-danger'>El Cliente <b>".$cliente->cli_nombre."</b> Se ha Actualizado satisfactoriamente</span>";
+
+			// }else{
+			//   	$_SESSION['editarError'] = "<span class='text-danger'>El Cliente <b>".$cliente->cli_nombre."</b> Se ha Actualizado satisfactoriamente</span>";
+
+			// }
 
 			redirect(getUrl("Cliente","Cliente","index"));
 

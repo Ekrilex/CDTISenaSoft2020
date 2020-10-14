@@ -5,7 +5,7 @@
 		if(isset($_SESSION['registrar'])){
 
 	?>
-		 <div class="alert alert-warning alert-dismissible fade show" role="alert">
+		 <div class="alert alert-success alert-dismissible fade show" role="alert">
 			  <?php echo $_SESSION['registrar'];?>
 			 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
@@ -17,8 +17,25 @@
 		}
 		unset($_SESSION['registrar']);
 	?>
+	<?php 
+
+		if(isset($_SESSION['registrarError'])){
+
+	?>
+		 <div class="alert alert-danger alert-dismissible fade show" role="alert">
+			  <?php echo $_SESSION['registrarError'];?>
+			 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			</button>
+		 </div>
+
+	<?php 
+
+		}
+		unset($_SESSION['registrarError']);
+	?>
 	<div class="page-header">
-		<h4 class="page-title">Forms</h4>
+		<h4 class="page-title"></h4>
 		<ul class="breadcrumbs">
 			<li class="nav-home">
 				<a href="#">
