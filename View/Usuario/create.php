@@ -11,13 +11,13 @@
 		 <label>Nombre</label>
 	   </div>
     <div class="col-md-4">
-    	<input type="text" name="nombre" class="form-control">
+    	<input type="text" name="usu_nombre" class="form-control">
     </div>
     <div class="col-md-2">
         <label>Apellidos</label>
       </div>
       <div class="col-md-4">
-      <input type="text" name="apellidos" class="form-control">
+      <input type="text" name="usu_apellido" class="form-control">
         </div> 
    </div><br><br>
 
@@ -26,13 +26,13 @@
    	    	<label>Telefono</label>
    	    </div>
    	    <div class="col-md-4">
-    	 <input type="number" name="telefono" class="form-control">
+    	 <input type="number" name="usu_telefn" class="form-control">
         </div>
         <div class="col-md-2">
           <label>Direccion</label>
         </div>
         <div class="col-md-4">
-          <input type="text" name="direccion" class="form-control">
+          <input type="text" name="usu_direcc" class="form-control">
         </div>
    </div><br><br>
 
@@ -41,14 +41,22 @@
    	    	<label>Correo electronico</label>
    	    </div>
    	    <div class="col-md-4">
-    	 <input type="text" name="correo" class="form-control">
+    	 <input type="text" name="usu_correo" class="form-control">
         </div>
           <div class="col-md-2">
            <label>Rol del usuario</label>
         </div>
         <div class="col-md-4">
-          <select name="rol" class="form-control">
+          <select name="usu_rolid" class="form-control">
             <option>Seleccionar..</option>
+            <?php
+
+            foreach ($rol as $value){
+              
+              echo "<option value='".$value->rol_id."'>".$value->rol_nombre."</option>";
+            }
+            
+            ?>
           </select>
         </div>
    </div><br><br>
@@ -59,13 +67,13 @@
           <label>Nickname</label>
         </div>
         <div class="col-md-4">
-          <input type="text" name="nickname" class="form-control">
+          <input type="text" name="usu_login" class="form-control">
         </div>
         <div class="col-md-2">
           <label>Pass</label>
         </div>
         <div class="col-md-4">
-          <input type="text" name="pass" class="form-control">
+          <input type="text" name="usu_passwod" class="form-control">
         </div>
    </div>
 <br><br>

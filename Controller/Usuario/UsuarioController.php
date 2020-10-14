@@ -16,12 +16,15 @@ class UsuarioController
 	}
 
 
-	public function getCreate(){
-		require_once '../View/Usuario/create.php';
+	public function getCreate(){				
+		
+		$sql="SELECT * FROM tbl_rol";
+		$rol=$this->model->consultar($sql);
+		include_once '../View/Usuario/create.php';
 	}
 
-/*
-	public function crud(){
+
+/*	public function crud(){
 		
 		$depto=new Departamento();
 		
@@ -35,48 +38,35 @@ class UsuarioController
 
 	public function postCreate(){
 
-		$depto->usu_nombre=$_REQUEST['nombre'];
-		$depto->usu_apellido=$_REQUEST['apellido'];
-		$depto->_nombre=$_REQUEST[''];
-		$depto->dep_id=$_REQUEST['id'];
-		$depto->dep_nombre=$_REQUEST['nombre'];
-		$depto->dep_id=$_REQUEST['id'];
-		$depto->dep_nombre=$_REQUEST['nombre'];
 
+		//0 = inhabilitado y 1= habilitado//
 
+		$depto=new tbl_usuario();
+
+		$depto->usu_nombre=$_REQUEST['usu_nombre'];
+		$depto->usu_apellido=$_REQUEST['usu_apellido'];
+		$depto->usu_login=$_REQUEST['usu_login'];
+		$depto->usu_passwod=$_REQUEST['usu_passwod'];
+		$depto->usu_telefn=$_REQUEST['usu_telefn'];
+		$depto->usu_direcc=$_REQUEST['usu_direcc'];
+		$depto->usu_rolid=$_REQUEST['usu_rolid'];
+		$depto->usu_correo=$_REQUEST['usu_correo'];
 		
-		//Captura de datos
-	/*	$depto=new Departamento();
-		$nuevo_depto=new Departamento();
-		
+		$sql="INSERT INTO tbl_usuario VALUES('NULL','".$depto->usu_nombre."','".$depto->usu_apellido."','".$depto->usu_login."','".$depto->usu_passwod."','$depto->usu_telefn','".$depto->usu_direcc."','$depto->usu_rolid','1','".$depto->usu_correo."')";
+		$usuario=$this->model->insertar($sql);	
 
-		$depto->dep_id=$_REQUEST['id'];
-		$depto->dep_nombre=$_REQUEST['nombre'];
-
-
-
-		//Ingreso de nuevo Departamento
-		$nuevo_depto=$this->model->getDepartamentoName($_REQUEST['nombre']);
-		
-		
-		if(isset($nuevo_depto->dep_nombre) && $depto->dep_id==null)
-		{
-			echo "<p class='text-danger h3'>El Departamento ya esta registrado</p>";
-		}else
-		{
-			$this->model->insertarDepartamento($depto);
-		}
-
-
-		//Editar Departamento
-		$depto->dep_id>0 ? $this->model->actualizarDepartamento($depto):"";
-		
-		//Respuesta del controlador
-		include('../view/departamento/departamentoSelect.php');
-	*/
+		redirect(getUrl("Usuario","Usuario","index"));
 	}
 
-	
+
+	public function index(){
+		$sql="SELECT * FROM tbl_usuario";
+		$usuario=$this->model->consultar($sql);
+		include_once '../View/Usuario/index.php';	
+	}
+
+
+
 /*
 	public function inactivar(){
 
