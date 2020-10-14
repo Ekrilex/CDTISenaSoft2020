@@ -11,7 +11,7 @@
 						<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 							<span>
 								Dummy
-								<span class="user-level">Administratdor</span>
+								<span class="user-level">Administrador</span>
 								
 							</span>
 						</a>
@@ -68,96 +68,42 @@
 					</li>
 					<li class="nav-item">
 						<a data-toggle="collapse" href="#base">
-							<i class="fas fa-layer-group"></i>
-							<p>Base</p>
+							<i class="fas fa-file-alt"></i>
+							<p>Facturacion</p>
 							<span class="caret"></span>
 						</a>
 						<div class="collapse" id="base">
 							<ul class="nav nav-collapse">
 								<li>
 									<a href="components/avatars.html">
-										<span class="sub-item">Avatars</span>
+										<span class="sub-item">Registrar Factura</span>
 									</a>
 								</li>
 								<li>
 									<a href="components/buttons.html">
-										<span class="sub-item">Buttons</span>
+										<span class="sub-item">Consultar Facturas</span>
 									</a>
 								</li>
 								<li>
-									<a href="components/gridsystem.html">
-										<span class="sub-item">Grid System</span>
+									<a href="components/buttons.html">
+										<span class="sub-item">Ver Borradores</span>
 									</a>
 								</li>
-								<li>
-									<a href="components/panels.html">
-										<span class="sub-item">Panels</span>
-									</a>
-								</li>
-								<li>
-									<a href="components/notifications.html">
-										<span class="sub-item">Notifications</span>
-									</a>
-								</li>
-								<li>
-									<a href="components/sweetalert.html">
-										<span class="sub-item">Sweet Alert</span>
-									</a>
-								</li>
-								<li>
-									<a href="components/font-awesome-icons.html">
-										<span class="sub-item">Font Awesome Icons</span>
-									</a>
-								</li>
-								<li>
-									<a href="components/simple-line-icons.html">
-										<span class="sub-item">Simple Line Icons</span>
-									</a>
-								</li>
-								<li>
-									<a href="components/flaticons.html">
-										<span class="sub-item">Flaticons</span>
-									</a>
-								</li>
-								<li>
-									<a href="components/typography.html">
-										<span class="sub-item">Typography</span>
-									</a>
-								</li>
+								
 							</ul>
 						</div>
 					</li>
 					<li class="nav-item">
 						<a data-toggle="collapse" href="#sidebarLayouts">
-							<i class="fas fa-th-list"></i>
-							<p>Sidebar Layouts</p>
+							<i class="fas fa-database"></i>
+							<p>Inventario</p>
 							<span class="caret"></span>
 						</a>
 						<div class="collapse" id="sidebarLayouts">
 							<ul class="nav nav-collapse">
 								<li>
 									<a href="sidebar-style-1.html">
-										<span class="sub-item">Sidebar Style 1</span>
-									</a>
-								</li>
-								<li>
-									<a href="overlay-sidebar.html">
-										<span class="sub-item">Overlay Sidebar</span>
-									</a>
-								</li>
-								<li>
-									<a href="compact-sidebar.html">
-										<span class="sub-item">Compact Sidebar</span>
-									</a>
-								</li>
-								<li>
-									<a href="static-sidebar.html">
-										<span class="sub-item">Static Sidebar</span>
-									</a>
-								</li>
-								<li>
-									<a href="icon-menu.html">
-										<span class="sub-item">Icon Menu</span>
+										<span class="sub-item">Abastecer inventario Bodega</span>
 									</a>
 								</li>
 							</ul>
@@ -166,20 +112,25 @@
 					<li class="nav-item">
 						<a data-toggle="collapse" href="#forms">
 							<i class="fas fa-pen-square"></i>
-							<p>Forms</p>
+							<p>Productos</p>
 							<span class="caret"></span>
 						</a>
 						<div class="collapse" id="forms">
 							<ul class="nav nav-collapse">
 								<li>
 									<a href="forms/forms.html">
-										<span class="sub-item">Basic Form</span>
+										<span class="sub-item">Registrar Producto</span>
+									</a>
+								</li>
+								<li>
+									<a href="forms/forms.html">
+										<span class="sub-item">Consultar Producto</span>
 									</a>
 								</li>
 							</ul>
 						</div>
 					</li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a data-toggle="collapse" href="#tables">
 							<i class="fas fa-table"></i>
 							<p>Tables</p>
@@ -199,8 +150,8 @@
 								</li>
 							</ul>
 						</div>
-					</li>
-					<li class="nav-item">
+					</li> -->
+					<!-- <li class="nav-item">
 						<a data-toggle="collapse" href="#maps">
 							<i class="fas fa-map-marker-alt"></i>
 							<p>Maps</p>
@@ -215,8 +166,8 @@
 								</li>
 							</ul>
 						</div>
-					</li>
-					<li class="nav-item">
+					</li> -->
+					<!-- <li class="nav-item">
 						<a data-toggle="collapse" href="#charts">
 							<i class="far fa-chart-bar"></i>
 							<p>Charts</p>
@@ -236,14 +187,14 @@
 								</li>
 							</ul>
 						</div>
-					</li>
-					<li class="nav-item">
+					</li> -->
+					<!-- <li class="nav-item">
 						<a href="widgets.html">
 							<i class="fas fa-desktop"></i>
 							<p>Widgets</p>
 							<span class="badge badge-success">4</span>
 						</a>
-					</li>
+					</li> -->
 					<li class="nav-item">
 						<a data-toggle="collapse" href="#submenu">
 							<i class="fas fa-bars"></i>
@@ -292,6 +243,46 @@
 										</ul>
 									</div>
 								</li>
+								<li>
+									<a data-toggle="collapse" href="#subnav3">
+										<span class="sub-item">Sucursales</span>
+										<span class="caret"></span>
+									</a>
+									<div class="collapse" id="subnav3">
+										<ul class="nav nav-collapse subnav">
+											<li>
+												<a href="#">
+													<span class="sub-item">Registrar Sucursal</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<span class="sub-item">Consultar Sucursal</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<a data-toggle="collapse" href="#subnav4">
+										<span class="sub-item">Usuarios</span>
+										<span class="caret"></span>
+									</a>
+									<div class="collapse" id="subnav4">
+										<ul class="nav nav-collapse subnav">
+											<li>
+												<a href="#">
+													<span class="sub-item">Registrar Usuario</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<span class="sub-item">Consultar Usuario</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
 								<!-- <li>
 									<a href="#">
 										<span class="sub-item">Level 1</span>
@@ -300,9 +291,9 @@
 							</ul>
 						</div>
 					</li>
-					<li class="mx-4 mt-2">
+					<!-- <li class="mx-4 mt-2">
 						<a href="http://themekita.com/atlantis-bootstrap-dashboard.html" class="btn btn-primary btn-block"><span class="btn-label mr-2"> <i class="fa fa-heart"></i> </span>Buy Pro</a> 
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>
