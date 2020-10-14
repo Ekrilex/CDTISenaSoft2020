@@ -271,7 +271,7 @@
 									<div class="collapse" id="subnav4">
 										<ul class="nav nav-collapse subnav">
 											<li>
-												<a href="#">
+												<a href="<?php  echo getUrl("Usuario","Usuario","getCreate");?>">
 													<span class="sub-item">Registrar Usuario</span>
 												</a>
 											</li>
