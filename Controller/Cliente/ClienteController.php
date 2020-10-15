@@ -147,6 +147,20 @@
 		}
 
 
+		public function getCliente(){
+
+			$cliente=new tbl_cliente;
+
+			$sql="select * from tbl_cliente where cli_nit=".$_REQUEST['cli_nit']."";
+
+			$cliente=$this->model->getConsulta($sql);
+
+			print json_encode($cliente);
+			
+		
+		}
+
+
 
 
 	}
