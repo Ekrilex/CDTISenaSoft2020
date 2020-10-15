@@ -47,7 +47,7 @@
 						<h1> Bienvenido <br>PROFAC </h1>
 					</div>
 					<div class="modal-body">
-						<form action="<?php echo getUrl('Acceso','Acceso','login',false,'ajax')?>" name="formlogin" method="POST" target="_self">
+						<form action="<?php echo getUrl('Acceso','Acceso','login',false,'Web/ajax')?>" name="formlogin" method="POST" target="_self">
 							<br>
 							<div class="form-group">
 								<label for="user"><i class="fas fa-user"></i> Usuario</label><br>
@@ -59,6 +59,14 @@
 							</div>
 							<br>
 							<div class="form-group">
+								<div>
+									<?php 
+										if(isset($_GET['error'])){
+											echo $_GET['error'];
+										}
+									?>
+
+								</div>
 								<input type="button"  class="btn btn-primary" value="Cancelar" data-dismiss="modal">
 								<input type="submit"  class="btn btn-primary" value="Iniciar">
 							</div>

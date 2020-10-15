@@ -51,7 +51,7 @@
 								<li>
 									<div class="dropdown-title">You have 4 new notification</div>
 								</li>
-								<li>
+								<!-- <li>
 									<div class="notif-scroll scrollbar-outer">
 										<div class="notif-center">
 											<a href="#">
@@ -95,7 +95,7 @@
 										</div>
 									</div>
 								</li>
-								<li>
+								<li> -->
 									<a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i> </a>
 								</li>
 							</ul>
@@ -113,15 +113,15 @@
 										<div class="user-box">
 											<div class="avatar-lg"><img src="assets/img/imgUsuario.jpg" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
-												<h4>Hizrian</h4>
-												<p class="text-muted">hello@example.com</p>
+												<h4><?php echo $_SESSION['nombre']." ".$_SESSION['apellido']?></h4>
+												<p class="text-muted"><?php echo $_SESSION['nickname'];?></p>
 											</div>
 										</div>
 									</li>
 									<li>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">My Profile</a>
-										<a class="dropdown-item" href="#">Logout</a>
+										<!-- <a class="dropdown-item" href="#">My Profile</a> -->
+										<a class="dropdown-item" href="<?php echo getUrl('Acceso','Acceso','logout') ?>">Logout</a>
 									</li>
 								</div>
 							</ul>
