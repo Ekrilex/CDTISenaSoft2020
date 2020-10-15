@@ -89,6 +89,9 @@ $(document).ready(function(){
 	});
 
 
+	/////////////////Fin jquery cliente///////////////////////
+
+
 	$(document).on("click",".cambiaEstado",function(){
 
 		var url = $(this).attr("data-url");

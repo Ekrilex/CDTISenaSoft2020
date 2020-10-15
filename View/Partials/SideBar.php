@@ -251,12 +251,12 @@
 									<div class="collapse" id="subnav3">
 										<ul class="nav nav-collapse subnav">
 											<li>
-												<a href="#">
+												<a href="<?php echo getUrl('Sucursal','Sucursal','crear')?>">
 													<span class="sub-item">Registrar Sucursal</span>
 												</a>
 											</li>
 											<li>
-												<a href="#">
+												<a href="<?php echo getUrl('Sucursal','Sucursal','index')?>">
 													<span class="sub-item">Consultar Sucursal</span>
 												</a>
 											</li>
