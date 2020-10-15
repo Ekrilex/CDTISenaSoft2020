@@ -10,8 +10,8 @@
 					<div class="info">
 						<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 							<span>
-								Dummy
-								<span class="user-level">Administrador</span>
+								<?php echo $_SESSION['nombre']." ".$_SESSION['apellido']?>
+								<span class="user-level"><?php echo $_SESSION['nombreRol']?></span>
 								
 							</span>
 						</a>
@@ -93,43 +93,51 @@
 							</ul>
 						</div>
 					</li>
-					<li class="nav-item">
-						<a data-toggle="collapse" href="#sidebarLayouts">
-							<i class="fas fa-database"></i>
-							<p>Inventario</p>
-							<span class="caret"></span>
-						</a>
-						<div class="collapse" id="sidebarLayouts">
-							<ul class="nav nav-collapse">
-								<li>
-									<a href="<?php echo getUrl('Bodega','Bodega','index');?>">
-										<span class="sub-item">Abastecer inventario Bodega</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</li>
-					<li class="nav-item">
-						<a data-toggle="collapse" href="#forms">
-							<i class="fas fa-pen-square"></i>
-							<p>Productos</p>
-							<span class="caret"></span>
-						</a>
-						<div class="collapse" id="forms">
-							<ul class="nav nav-collapse">
-								<li>
-									<a href="<?php echo getUrl('Producto','Producto','crear')?>">
-										<span class="sub-item">Registrar Producto</span>
-									</a>
-								</li>
-								<li>
-									<a href="<?php echo getUrl('Producto','Producto','index')?>">
-										<span class="sub-item">Consultar Producto</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</li>
+					<?php if($_SESSION['rol'] != 2){?>
+						<li class="nav-item">
+							<a data-toggle="collapse" href="#sidebarLayouts">
+								<i class="fas fa-database"></i>
+								<p>Inventario</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="sidebarLayouts">
+								<ul class="nav nav-collapse">
+									<li>
+										<a href="<?php echo getUrl('Bodega','Bodega','index');?>">
+											<span class="sub-item">Abastecer inventario Bodega</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+					<?php }?>
+					<?php if($_SESSION['rol'] == 3 || $_SESSION['rol'] == 2){?>
+						<li class="nav-item">
+							<a data-toggle="collapse" href="#forms">
+								<i class="fas fa-pen-square"></i>
+								<p>Productos</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="forms">
+								<ul class="nav nav-collapse">
+									<?php if($_SESSION['rol']==3){?>
+										<li>
+											<a href="<?php echo getUrl('Producto','Producto','crear')?>">
+												<span class="sub-item">Registrar Producto</span>
+											</a>
+										</li>
+									<?php }?>
+									<?php if($_SESSION['rol']==2 || $_SESSION['rol'] == 3){?>
+										<li>
+											<a href="<?php echo getUrl('Producto','Producto','index')?>">
+												<span class="sub-item">Consultar Producto</span>
+											</a>
+										</li>
+									<?php }?>
+								</ul>
+							</div>
+						</li>
+					<?php }?>
 					<!-- <li class="nav-item">
 						<a data-toggle="collapse" href="#tables">
 							<i class="fas fa-table"></i>
@@ -195,122 +203,128 @@
 							<span class="badge badge-success">4</span>
 						</a>
 					</li> -->
-					<li class="nav-item">
-						<a data-toggle="collapse" href="#submenu">
-							<i class="fas fa-bars"></i>
-							<p>Panel De Control</p>
-							<span class="caret"></span>
-						</a>
-						<div class="collapse" id="submenu">
-							<ul class="nav nav-collapse">
-								<li>
-									<a data-toggle="collapse" href="#subnav1">
-										<span class="sub-item">Clientes</span>
-										<span class="caret"></span>
-									</a>
-									<div class="collapse" id="subnav1">
-										<ul class="nav nav-collapse subnav">
-											<li>
-												<a href="<?php echo getUrl('Cliente','Cliente','crear')?>">
-													<span class="sub-item">Registrar Cliente</span>
-												</a>
-											</li>
-											<li>
-												<a href="<?php echo getUrl('Cliente','Cliente','index')?>">
-													<span class="sub-item">Consultar Cliente</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</li>
-								<li>
-									<a data-toggle="collapse" href="#subnav2">
-										<span class="sub-item">Tiendas</span>
-										<span class="caret"></span>
-									</a>
-									<div class="collapse" id="subnav2">
-										<ul class="nav nav-collapse subnav">
-											<li>
-												<a href="<?php echo getUrl('tienda','tienda','crear'); ?>">
-													<span class="sub-item">Registrar Tienda</span>
-												</a>
-											</li>
-											<li>
-												<a href="<?php echo getUrl('tienda','tienda','index'); ?>">
-													<span class="sub-item">Consultar Tienda</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</li>
-								<li>
-									<a data-toggle="collapse" href="#subnav3">
-										<span class="sub-item">Sucursales</span>
-										<span class="caret"></span>
-									</a>
-									<div class="collapse" id="subnav3">
-										<ul class="nav nav-collapse subnav">
-											<li>
-												<a href="<?php echo getUrl('Sucursal','Sucursal','crear')?>">
-													<span class="sub-item">Registrar Sucursal</span>
-												</a>
-											</li>
-											<li>
-												<a href="<?php echo getUrl('Sucursal','Sucursal','index')?>">
-													<span class="sub-item">Consultar Sucursal</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</li>
-								<li>
-									<a data-toggle="collapse" href="#subnav4">
-										<span class="sub-item">Usuarios</span>
-										<span class="caret"></span>
-									</a>
-									<div class="collapse" id="subnav4">
-										<ul class="nav nav-collapse subnav">
-											<li>
-												<a href="<?php  echo getUrl("Usuario","Usuario","getCreate");?>">
-													<span class="sub-item">Registrar Usuario</span>
-												</a>
-											</li>
-											<li>
-												<a href="<?php echo getUrl('Usuario','Usuario','index');?>">
-													<span class="sub-item">Consultar Usuario</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</li>
-								<li>
-									<a data-toggle="collapse" href="#subnav5">
-										<span class="sub-item">Proovedor</span>
-										<span class="caret"></span>
-									</a>
-									<div class="collapse" id="subnav5">
-										<ul class="nav nav-collapse subnav">
-											<li>
-												<a href="<?php  echo getUrl("Usuario","Usuario","getCreate");?>">
-													<span class="sub-item">Registrar Proovedor</span>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<span class="sub-item">Consultar Proovedor</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</li>
-								<!-- <li>
-									<a href="#">
-										<span class="sub-item">Level 1</span>
-									</a>
-								</li> -->
-							</ul>
-						</div>
-					</li>
+					<?php if($_SESSION['rol'] == 2 || $_SESSION['rol'] == 1){?>
+						<li class="nav-item">
+							<a data-toggle="collapse" href="#submenu">
+								<i class="fas fa-bars"></i>
+								<p>Panel De Control</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="submenu">
+								<ul class="nav nav-collapse">
+									<?php if($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2){?>
+										<li>
+											<a data-toggle="collapse" href="#subnav1">
+												<span class="sub-item">Clientes</span>
+												<span class="caret"></span>
+											</a>
+											<div class="collapse" id="subnav1">
+												<ul class="nav nav-collapse subnav">
+													<li>
+														<a href="<?php echo getUrl('Cliente','Cliente','crear')?>">
+															<span class="sub-item">Registrar Cliente</span>
+														</a>
+													</li>
+													<li>
+														<a href="<?php echo getUrl('Cliente','Cliente','index')?>">
+															<span class="sub-item">Consultar Cliente</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+									<?php }?>
+									<?php if($_SESSION['rol'] == 1){?>
+										<li>
+											<a data-toggle="collapse" href="#subnav2">
+												<span class="sub-item">Tiendas</span>
+												<span class="caret"></span>
+											</a>
+											<div class="collapse" id="subnav2">
+												<ul class="nav nav-collapse subnav">
+													<li>
+														<a href="<?php echo getUrl('tienda','tienda','crear'); ?>">
+															<span class="sub-item">Registrar Tienda</span>
+														</a>
+													</li>
+													<li>
+														<a href="<?php echo getUrl('tienda','tienda','index'); ?>">
+															<span class="sub-item">Consultar Tienda</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li>
+											<a data-toggle="collapse" href="#subnav3">
+												<span class="sub-item">Sucursales</span>
+												<span class="caret"></span>
+											</a>
+											<div class="collapse" id="subnav3">
+												<ul class="nav nav-collapse subnav">
+													<li>
+														<a href="<?php echo getUrl('Sucursal','Sucursal','crear')?>">
+															<span class="sub-item">Registrar Sucursal</span>
+														</a>
+													</li>
+													<li>
+														<a href="<?php echo getUrl('Sucursal','Sucursal','index')?>">
+															<span class="sub-item">Consultar Sucursal</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li>
+											<a data-toggle="collapse" href="#subnav4">
+												<span class="sub-item">Usuarios</span>
+												<span class="caret"></span>
+											</a>
+											<div class="collapse" id="subnav4">
+												<ul class="nav nav-collapse subnav">
+													<li>
+														<a href="<?php  echo getUrl("Usuario","Usuario","getCreate");?>">
+															<span class="sub-item">Registrar Usuario</span>
+														</a>
+													</li>
+													<li>
+														<a href="<?php echo getUrl('Usuario','Usuario','index');?>">
+															<span class="sub-item">Consultar Usuario</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li>
+											<a data-toggle="collapse" href="#subnav5">
+												<span class="sub-item">Proovedor</span>
+												<span class="caret"></span>
+											</a>
+											<div class="collapse" id="subnav5">
+												<ul class="nav nav-collapse subnav">
+													<li>
+														<a href="<?php  echo getUrl("Usuario","Usuario","getCreate");?>">
+															<span class="sub-item">Registrar Proovedor</span>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<span class="sub-item">Consultar Proovedor</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+									<?php }?>
+								<?php }?>
+									<!-- <li>
+										<a href="#">
+											<span class="sub-item">Level 1</span>
+										</a>
+									</li> -->
+								</ul>
+							</div>
+						</li>
 					<!-- <li class="mx-4 mt-2">
 						<a href="http://themekita.com/atlantis-bootstrap-dashboard.html" class="btn btn-primary btn-block"><span class="btn-label mr-2"> <i class="fa fa-heart"></i> </span>Buy Pro</a> 
 					</li> -->

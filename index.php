@@ -30,7 +30,10 @@
 		<div class="logo"></div>
 		<button type="button" class="btn btn-primary"  data-backdrop="static" data-keyboard="false" data-toggle="modal"  data-target="#login"> Iniciar Sesion </button>
 	</div>
+	<?php 
 
+		include_once 'Lib/Helpers.php';
+	?>
 	<!--Modal Inicio de Sesion -->
 	<div class="container">
 		<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginlabel" aria-hidden="true">
@@ -44,7 +47,7 @@
 						<h1> Bienvenido <br>PROFAC </h1>
 					</div>
 					<div class="modal-body">
-						<form action="web/index.php" name="formlogin" method="POST" target="_self">
+						<form action="<?php echo getUrl('Acceso','Acceso','login',false,'Web/ajax')?>" name="formlogin" method="POST" target="_self">
 							<br>
 							<div class="form-group">
 								<label for="user"><i class="fas fa-user"></i> Usuario</label><br>
@@ -56,6 +59,14 @@
 							</div>
 							<br>
 							<div class="form-group">
+								<div>
+									<?php 
+										if(isset($_GET['error'])){
+											echo $_GET['error'];
+										}
+									?>
+
+								</div>
 								<input type="button"  class="btn btn-primary" value="Cancelar" data-dismiss="modal">
 								<input type="submit"  class="btn btn-primary" value="Iniciar">
 							</div>
