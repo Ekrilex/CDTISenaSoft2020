@@ -1,18 +1,25 @@
 <?php 
 
 	include_once '../Model/tbl_factura.php';
+	include_once '../Model/tbl_producto.php';
 
 	class FacturaController {
 
 		private $model;
+		private $modelP;
 
 		public function __construct(){
 
 			$this->model = new tbl_factura();
+			$this->modelP = new tbl_producto();
 
 		}
 
 		public function crear(){
+
+			$productos=new tbl_producto();
+
+			$productos=$this->modelP->consultar('select * from tbl_producto');
 
 
 			include_once '../View/factura/registrarFactura.php';
