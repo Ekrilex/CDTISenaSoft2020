@@ -216,6 +216,123 @@ $(document).ready(function(){
 
 	});
 
+	$(document).on("click",".cambiaEstadoProd",function(){
+
+		var url = $(this).attr("data-url");
+		var id = $(this).attr("data-id");
+		var estado = $(this).attr("data-estado");
+		var stock = $(this).attr("data-stock");
+
+		//alert(url+" : "+id+" : "+estado);
+
+		if(estado == 1){
+				swal({
+					title: 'Advertencia',
+					text: "Esta Seguro de inhabilitar el producto?",
+					type: 'warning',
+					buttons:{
+						confirm: {
+							text : 'Inhabilitar',
+							className : 'btn btn-success'
+						},
+						cancel: {
+							visible: true,
+							className: 'btn btn-danger'
+						}
+					}
+				}).then((Delete) => {
+					if (Delete) {
+
+						$.ajax({
+
+							url: url,
+							type: "POST",
+							data: "id="+id+"&estado="+estado+"&stock="+stock,
+							success: function(datos){
+
+								$('#bodyConsulta').html(datos);
+
+							}
+
+						});
+
+						swal({
+							title: 'Eliminado',
+							text: 'El Producto se ha inhabilitado',
+							type: 'success',
+							buttons : {
+								confirm: {
+									className : 'btn btn-success'
+								}
+							}
+						});
+					} else {
+						swal.close();
+					}
+				});
+
+		}else{
+
+			$.ajax({
+
+				url: url,
+				type: "POST",
+				data: "id="+id+"&estado="+estado+"&stock="+stock,
+				success: function(datos){
+
+					$('#bodyConsulta').html(datos);
+
+				}
+
+			});
+
+			swal("Cambio estado", "El producto se ha habilitado", {
+				icon : "success",
+				buttons: {
+					confirm: {
+						className : 'btn btn-success'
+					}
+				},
+			});
+
+
+		}
+		// $.ajax({
+
+		// 	url: url,
+		// 	type: "POST",
+		// 	data: "id="+id+"&estado="+estado+"&stock="+stock,
+		// 	success: function(datos){
+
+		// 		$('#bodyConsulta').html(datos);
+
+		// 	}
+
+		// });
+
+	});
+
+	$(document).on("keyup","#campoFiltro",function(){
+
+		var busqueda = $(this).val();
+		var url = $(this).attr("data-url");
+
+		$.ajax({
+
+			url: url,
+			type: "POST",
+			data: "busqueda="+busqueda,
+
+			success: function(resultado){
+
+				$('#bodyConsulta').html(resultado);
+
+			}
+
+		});
+
+	});
+
 
 });
 
