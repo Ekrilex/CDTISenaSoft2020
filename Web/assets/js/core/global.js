@@ -138,6 +138,30 @@ $(document).ready(function(){
 
 	});
 
+////Factura///////////////
+
+	$(document).on("blur",".xxxxxx",function(){
+
+		var url = $(this).attr("data-url");
+		var cli_nit = $(this).attr("value");
+		
+		alert(cli_nit);
+
+		$.ajax({
+
+			url: url,
+			type: "POST",
+			data: "cli_nit="+cli_nit,
+			success: function(datos){
+
+				$('#tbodyConsultar').html(datos);
+
+			}
+
+		}); 
+
+	});
+
 
 
 

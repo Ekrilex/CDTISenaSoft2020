@@ -113,6 +113,29 @@
 
 		}
 
+
+		public function getConsulta($sql){
+
+			try{
+
+				$consulta = $this->conexion->prepare($sql);
+				$consulta->execute();
+
+				
+				return $consulta->fetchALL(PDO::FETCH_OBJ);
+
+
+			}catch(Exception $e){
+
+				die($e->getMessage());
+
+			}
+
+		}
+
+
+
+
 	}
 
 ?>
