@@ -1,4 +1,38 @@
 <div class="page-inner">
+			<?php 
+
+			if(isset($_SESSION['editar'])){
+
+			?>
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<?php echo $_SESSION['editar'];?>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+			<?php 
+
+			}
+			unset($_SESSION['editar']);
+			?>
+			<?php 
+
+			if(isset($_SESSION['editarError'])){
+
+			?>
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<?php echo $_SESSION['editarError'];?>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+			<?php 
+
+			}
+			unset($_SESSION['editarError']);
+			?>
 	<div class="page-header">
 		<h4 class="page-title"></h4>
 		<ul class="breadcrumbs">

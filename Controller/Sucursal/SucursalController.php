@@ -64,9 +64,13 @@
 
 			$suc_id = $_REQUEST['suc_id'];
 
-			$sql = "SELECT * FROM tbl_sucursal, tbl_empresa WHERE suc_id = ".$suc_id." suc_empid = emp_id";
+			$sql = "SELECT * FROM tbl_sucursal, tbl_empresa WHERE suc_id = ".$suc_id." AND suc_empid = emp_id";
 
 			$consultaSucursal = $this->model->consultar($sql);
+
+			$sql = "SELECT * FROM tbl_empresa WHERE emp_estado = 1";
+
+			$consultaEmpresas = $this->model->consultar($sql);
 
 			include_once '../View/Sucursal/Editar.php';
 
@@ -74,7 +78,28 @@
 
 		public function actualizar(){
 
+			$sucursal = new tbl_sucursal();
 
+			$sucursal->suc_id = $_REQUEST['suc_id'];
+			$sucursal->suc_nombre = $_REQUEST['suc_nombre'];
+			$sucursal->suc_telefo = $_REQUEST['suc_telefo'];
+			$sucursal->suc_direcc = $_REQUEST['suc_direcc'];
+			$sucursal->suc_barrio = $_REQUEST['suc_barrio'];
+			$sucursal->suc_ciudad = $_REQUEST['suc_ciudad'];
+			$sucursal->suc_empid = $_REQUEST['suc_empid'];
+
+			$sql = "UPDATE tbl_sucursal SET suc_nombre = '".$sucursal->suc_nombre."', suc_telefo = '".$sucursal->suc_telefo."', suc_direcc = '".$sucursal->suc_direcc."', suc_barrio = '".$sucursal->suc_barrio."', suc_ciudad = '".$sucursal->suc_ciudad."', suc_empid = ".$sucursal->suc_empid." WHERE suc_id = ".$sucursal->suc_id."";
+
+			try{
+				$actualizacion = $this->model->editar($sql);
+				$_SESSION['editar'] = "<span class='text-danger'>la Sucursal <b>".$sucursal->suc_nombre."</b> Se ha Actualizado satisfactoriamente</span>";
+
+			}catch(Exception $e){
+				$_SESSION['editarError'] = "<span class='text-danger'>la Sucursal <b>".$sucursal->suc_nombre."</b> Se ha Actualizado satisfactoriamente</span>";
+
+			}
+
+			redirect(getUrl("Sucursal","Sucursal","index"));
 
 		}
 
