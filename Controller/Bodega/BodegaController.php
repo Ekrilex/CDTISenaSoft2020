@@ -1,9 +1,9 @@
 <?php
 
 
-require_once '../Model/Usuario/UsuarioModel.php';
+require_once '../Model/tbl_bodega.php';
 
-class UsuarioController
+class BodegaController
 {
 
 	private $model;
@@ -11,12 +11,12 @@ class UsuarioController
 
 	public function __construct()
 	{
-		$this->model= new  tbl_usuario();
+		$this->model= new  tbl_bodega();
 
 	}
 
 
-	public function getCreate(){				
+/*	public function getCreate(){				
 		
 		$sql="SELECT * FROM tbl_rol";
 		$rol=$this->model->consultar($sql);
@@ -27,19 +27,9 @@ class UsuarioController
 		include_once '../View/Usuario/create.php';
 	}
 
-
-/*	public function crud(){
-		
-		$depto=new Departamento();
-		
-		if(isset($_REQUEST['id'])){
-			$depto=$this->model->getDepartamento($_REQUEST['id']);
-		}
-		print json_encode($depto);
-	}
 */
 
-
+/*
 	public function postCreate(){
 
 
@@ -62,16 +52,18 @@ class UsuarioController
 
 		redirect(getUrl("Usuario","Usuario","index"));
 	}
-
+*/
 
 	public function index(){
-		$sql="SELECT * FROM tbl_usuario as u , tbl_rol as r WHERE u.usu_rolid=r.rol_id";
-		$usuario=$this->model->consultar($sql);
+		$sql="SELECT * FROM tbl_producto as p, tbl_bodega as b, tbl_detalle_producto_bodega as d WHERE d.dpb_bodid=b.bod_id AND d.dpb_procod = p.pro_codigo";
+		
+         //$sql="SELECT * FROM tbl_producto";
+		$bodega=$this->model->consultar($sql);
 
-		include_once '../View/Usuario/index.php';	
+		include_once '../View/Bodega/index.php';	
 	}
 
-	public function getUpdate(){
+/*	public function getUpdate(){
 
 		$id=$_GET['usu_id'];
 

@@ -102,7 +102,7 @@
 						<div class="collapse" id="sidebarLayouts">
 							<ul class="nav nav-collapse">
 								<li>
-									<a href="sidebar-style-1.html">
+									<a href="<?php echo getUrl('Bodega','Bodega','index');?>">
 										<span class="sub-item">Abastecer inventario Bodega</span>
 									</a>
 								</li>
