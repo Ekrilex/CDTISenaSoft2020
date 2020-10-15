@@ -49,7 +49,7 @@
 				<div class="form-row">
 					<div class="form-group col-md-3">
 						<label>Cédula Cliente</label>
-						<input  type="number" class="form-control" name="fac_clinit" value="123456789" placeholder="Identificación Cliente" id="cedula" onblur="getCliente();">
+						<input  type="number" class="form-control" name="fac_clinit" value="" placeholder="Identificación Cliente" id="cedula" onblur="getCliente();">
 					</div> 
 					<div class="form-group col-md-4">
 						<label>Nombre Cliente</label>
@@ -72,6 +72,12 @@
 						<label>Elegir Productos</label>
 						<select  class="form-control">
 							<option value="" >Seleccione Producto </option>
+							<?php
+							foreach ($productos as $value):?>
+
+							<option value="<?php echo $value->pro_id; ?>" >Producto: <?php echo $value->pro_nombre; ?> >>> Marca: <?php echo $value->pro_marca; ?></option>
+
+							<?php endforeach; ?>
 						</select>
 					</div>
 				</div>
