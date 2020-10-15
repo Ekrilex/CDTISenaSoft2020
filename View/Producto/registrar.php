@@ -96,7 +96,7 @@
 						</div>
 						<div class="card-action">
 							<div id="errorVacio"></div>
-							<!-- <input type="hidden" name="pro_usu" value="<?php //echo $_SESSION['id'];?>"> -->
+							<input type="hidden" name="pro_usu" value="<?php echo $_SESSION['id'];?>">
 							<a class="btn btn-secondary" href='<?php echo getUrl('Producto','Producto','index')?>'>Salir</a>
 							<button type="submit" class="btn btn-success">Registrar Producto</button>
 						</div>

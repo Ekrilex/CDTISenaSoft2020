@@ -105,7 +105,7 @@
 							<div id="errorVacio"></div>
 							<input type="hidden" name="pro_foto_antigua" value="<?php echo $productoSeleccionado->pro_foto?>">
 							<input type="hidden" name="pro_id" value="<?php echo $productoSeleccionado->pro_id;?>">
-							<!-- <input type="hidden" name="pro_usu" value="<?php //echo $_SESSION['id'];?>"> -->
+							<input type="hidden" name="pro_usu" value="<?php echo $_SESSION['id'];?>">
 							<a class="btn btn-secondary" href='<?php echo getUrl('Producto','Producto','index')?>'>Salir</a>
 							<button type="submit" class="btn btn-success">Modificar Producto</button>
 						</div>

@@ -29,21 +29,25 @@
 			$producto->pro_precio = $_REQUEST['pro_precio'];
 			$producto->pro_stock = $_REQUEST['pro_stock'];
 			$producto->pro_estado = 3;
-			
-			//$producto->pro_usu = $_REQUEST['pro_usu'];
+			$producto->pro_usu = $_REQUEST['pro_usu'];
 
 			$producto->pro_foto = "assets/img/imagenesProductos/".$producto->pro_foto;
 
 			move_uploaded_file($_FILES['pro_foto']['tmp_name'], $producto->pro_foto);
 
 			$sql = "INSERT INTO tbl_producto (pro_id, pro_codigo, pro_nombre, pro_marca, pro_foto, pro_precio, pro_stock, pro_estado, pro_usu) 
-			VALUES(".$producto->pro_id.",".$producto->pro_codigo.",'".$producto->pro_nombre."','".$producto->pro_marca."','".$producto->pro_foto."',".$producto->pro_precio.", ".$producto->pro_stock.",".$producto->pro_estado.", 1)";
+			VALUES(".$producto->pro_id.",".$producto->pro_codigo.",'".$producto->pro_nombre."','".$producto->pro_marca."','".$producto->pro_foto."',".$producto->pro_precio.", ".$producto->pro_stock.",".$producto->pro_estado.", ".$producto->pro_usu.")";
+
+			$dbp_id = $this->model->autoincrement("tbl_detalle_producto_bodega","dpb_id");
+
+			$sqlBodega = "INSERT INTO tbl_detalle_producto_bodega VALUES(".$dbp_id.",".$_SESSION['bodega'].",".$producto->pro_id.",".$_SESSION['sucursal'].")";
 			
 			// $sql = "INSERT INTO tbl_producto (pro_id, pro_codigo, pro_nombre, pro_marca, pro_foto, pro_precio, pro_stock, pro_estado, pro_usu) 
 			// VALUES(".$producto->pro_id.",".$producto->$pro_codigo.",'".$producto->pro_nombre."','".$producto->pro_marca."','".$producto->pro_foto."',".$producto->pro_precio.", ".$producto->pro_stock.",".$producto->pro_estado.",".$pro_usu.")";
 
 			try{
 				$insercion = $this->model->insertar($sql);
+				$insercionBodega = $this->model->insertar($sqlBodega);
 				$_SESSION['registrar'] = "<span class='text-Success'>el producto <b>".$producto->pro_nombre."</b> Se ha registrado satisfactoriamente</span>";
 
 			}catch(Exception $e){
@@ -59,7 +63,7 @@
 
 		public function index(){
         
-			$sql = "SELECT * FROM tbl_producto, tbl_usuario, tbl_estado WHERE pro_usu = usu_id AND pro_estado = est_id";
+			$sql = "SELECT * FROM tbl_producto,tbl_detalle_producto_bodega, tbl_usuario, tbl_estado WHERE pro_usu = usu_id AND pro_estado = est_id AND pro_id = dpb_procod AND dpb_bodid = ".$_SESSION['bodega']."";
 
 			$consultaProductos = $this->model->consultar($sql);
 
@@ -158,7 +162,7 @@
 
 			$cambioDeEstado = $this->model->editar($sql);
 
-			$sqlConsulta = "SELECT * FROM tbl_producto, tbl_usuario, tbl_estado WHERE pro_usu = usu_id AND pro_estado = est_id";
+			$sqlConsulta = "SELECT * FROM tbl_producto,tbl_detalle_producto_bodega, tbl_usuario, tbl_estado WHERE pro_usu = usu_id AND pro_estado = est_id AND pro_id = dpb_procod AND dpb_bodid = ".$_SESSION['bodega']."";
 
 			$consultaProductos = $this->model->consultar($sqlConsulta);
 
@@ -169,7 +173,7 @@
 
 			$busqueda = $_REQUEST['busqueda'];
 
-			$sql = "SELECT * FROM tbl_producto, tbl_usuario, tbl_estado WHERE pro_usu = usu_id AND pro_estado = est_id AND (pro_nombre LIKE '%".$busqueda."%' OR pro_marca LIKE '%".$busqueda."%' OR pro_codigo LIKE '%".$busqueda."%' OR pro_precio LIKE '%".$busqueda."%')";
+			$sql = "SELECT * FROM tbl_producto, tbl_detalle_producto_bodega,tbl_usuario, tbl_estado WHERE pro_usu = usu_id AND pro_estado = est_id AND pro_id = dpb_procod AND dpb_bodid = ".$_SESSION['bodega']." AND (pro_nombre LIKE '%".$busqueda."%' OR pro_marca LIKE '%".$busqueda."%' OR pro_codigo LIKE '%".$busqueda."%' OR pro_precio LIKE '%".$busqueda."%')";
 
 			$consultaProductos = $this->model->consultar($sql);
 
