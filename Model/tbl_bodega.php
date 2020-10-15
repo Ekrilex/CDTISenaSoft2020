@@ -14,9 +14,11 @@
 		public $pro_nombre;
 		public $pro_estado;
 		public $pro_stock;
+		public $pro_codigo;
 		
 		public $pro_foto;
 		public $usu_sucursal;
+
 		
 
 	}
