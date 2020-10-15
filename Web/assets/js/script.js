@@ -28,16 +28,6 @@ function getCliente(){
 
 						document.getElementById('nombre').value=data[0]['cli_nombre'];
 						document.getElementById('telefono').value=data[0]['cli_telefn'];
-					
-
-				
-
-				
-
-				
-
-
-
 				
 			}
 		}
