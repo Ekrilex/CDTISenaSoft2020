@@ -56,17 +56,17 @@
           </div>
           <div class="form-group col-md-4">
             <label>Correo electronico</label>
-            <input type="text" class="form-control" name="usu_correo"  required placeholder="Exampple@example.com">
+            <input type="email" class="form-control" name="usu_correo"  required placeholder="Exampple@example.com">
           </div> 
           <div class="form-group col-md-4">
-            <label>Rol de usuario</label>
-          <select name="usu_rolid"  required class="form-control">
-            <option>Seleccionar..</option>
+            <label>Sucursal</label>
+          <select name="usu_sucursal"  required class="form-control">
+            <option value="">Seleccionar..</option>
             <?php
 
-            foreach ($rol as $value){
+            foreach ($sucu as $val){
               
-              echo "<option value='".$value->rol_id."'>".$value->rol_nombre."</option>";
+              echo "<option value='".$val->suc_id."'>".$val->suc_nombre."</option>";
             }
             
             ?>
@@ -79,7 +79,21 @@
           <div class="form-group col-md-4">
             <label>pass</label>
             <input type="password" class="form-control" name="usu_passwod" placeholder="*********">
-          </div>                     
+          </div>  
+          <div class="form-group col-md-4">
+            <label>Rol de usuario</label>
+          <select name="usu_rolid"  required class="form-control">
+            <option value="">Seleccionar..</option>
+            <?php
+
+            foreach ($rol as $value){
+              
+              echo "<option value='".$value->rol_id."'>".$value->rol_nombre."</option>";
+            }
+            
+            ?>
+          </select>
+          </div>                             
         </div>
         <div class="card-action">
           <a class="btn btn-secondary" href='<?php echo getUrl('Usuario','Usuario','index')?>'>Salir</a>

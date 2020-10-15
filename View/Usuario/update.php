@@ -60,8 +60,28 @@
           </div>
           <div class="form-group col-md-4">
             <label>Correo electronico</label>
-            <input type="text" class="form-control" name="usu_correo"  required placeholder="Exampple@example.com" value="<?php echo $value->usu_correo; ?>">
+            <input type="email" class="form-control" name="usu_correo"  required placeholder="Exampple@example.com" value="<?php echo $value->usu_correo; ?>">
           </div> 
+
+          <div class="form-group col-md-4">
+            <label>Sucursal</label>
+          <select name="usu_sucursal"  required class="form-control">
+            <option value="">Seleccionar..</option>
+            <?php
+
+            foreach ($sucu as $val){
+              if ($val->suc_id == $value->usu_sucursal) {
+              echo "<option value='".$val->suc_id."' selected>".$val->suc_nombre."</option>";              
+              }else{
+              echo "<option value='".$val->suc_id."'>".$val->suc_nombre."</option>";                              
+              }
+
+            }
+            
+            ?>
+          </select>
+          </div> 
+
           <div class="form-group col-md-4">
             <label>Rol de usuario</label>
           <select name="usu_rolid"  required class="form-control">
@@ -82,7 +102,7 @@
         </div>
         <div class="card-action">
           <a class="btn btn-secondary" href='<?php echo getUrl('Usuario','Usuario','index')?>'>Salir</a>
-          <button type="submit" class="btn btn-success">Registrar Cliente</button>
+          <button type="submit" class="btn btn-success">Modificar Usuario</button>
         </div>
       </form>
       </div>

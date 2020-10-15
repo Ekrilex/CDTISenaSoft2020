@@ -20,6 +20,10 @@ class UsuarioController
 		
 		$sql="SELECT * FROM tbl_rol";
 		$rol=$this->model->consultar($sql);
+         
+        $sql = "SELECT * FROM tbl_sucursal";
+        $sucu=$this->model->consultar($sql);
+
 		include_once '../View/Usuario/create.php';
 	}
 
@@ -51,8 +55,10 @@ class UsuarioController
 		$usuario->usu_direcc=$_REQUEST['usu_direcc'];
 		$usuario->usu_rolid=$_REQUEST['usu_rolid'];
 		$usuario->usu_correo=$_REQUEST['usu_correo'];
+		$usuario->usu_sucursal=$_REQUEST['usu_sucursal'];
 		
-		$sql="INSERT INTO tbl_usuario VALUES('$id','".$usuario->usu_nombre."','".$usuario->usu_apelld."','".$usuario->usu_login."','".$usuario->usu_passwod."','$usuario->usu_telefn','".$usuario->usu_direcc."','$usuario->usu_rolid','1','".$usuario->usu_correo."')";
+
+		$sql="INSERT INTO tbl_usuario VALUES('$id','".$usuario->usu_nombre."','".$usuario->usu_apelld."','".$usuario->usu_login."','".$usuario->usu_passwod."','$usuario->usu_telefn','".$usuario->usu_direcc."','$usuario->usu_rolid','1','".$usuario->usu_correo."','$usuario->usu_sucursal')";
 		$usuarios=$this->model->insertar($sql);	
 
 		redirect(getUrl("Usuario","Usuario","index"));
@@ -76,6 +82,9 @@ class UsuarioController
 		$sql="SELECT * FROM tbl_rol";
 		$roles=$this->model->consultar($sql);
 
+		$sql = "SELECT * FROM tbl_sucursal";
+        $sucu=$this->model->consultar($sql);
+
 		include_once '../View/Usuario/update.php';	
 	}
 
@@ -92,8 +101,9 @@ class UsuarioController
 		$usuario->usu_direcc=$_REQUEST['usu_direcc'];
 		$usuario->usu_rolid=$_REQUEST['usu_rolid'];
 		$usuario->usu_correo=$_REQUEST['usu_correo'];
+		$usuario->usu_sucursal=$_REQUEST['usu_sucursal'];
 		
-        $sql="UPDATE tbl_usuario set usu_nombre='".$usuario->usu_nombre."' , usu_apelld='".$usuario->usu_apelld."', usu_telefn='$usuario->usu_telefn', usu_direcc='".$usuario->usu_direcc."' , usu_rolid='$usuario->usu_rolid', usu_correo='".$usuario->usu_correo."' WHERE usu_id='$usuario->usu_id'";
+        $sql="UPDATE tbl_usuario set usu_nombre='".$usuario->usu_nombre."' , usu_apelld='".$usuario->usu_apelld."', usu_telefn='$usuario->usu_telefn', usu_direcc='".$usuario->usu_direcc."' , usu_rolid='$usuario->usu_rolid', usu_correo='".$usuario->usu_correo."', usu_sucursal='$usuario->usu_sucursal' WHERE usu_id='$usuario->usu_id'";
 		$usuarios=$this->model->editar($sql);	
 
 		redirect(getUrl("Usuario","Usuario","index"));

@@ -58,7 +58,7 @@
 		}
 
 		public function index(){
-
+        
 			$sql = "SELECT * FROM tbl_producto, tbl_usuario, tbl_estado WHERE pro_usu = usu_id AND pro_estado = est_id";
 
 			$consultaProductos = $this->model->consultar($sql);

@@ -89,6 +89,26 @@ $(document).ready(function(){
 	});
 
 
+  $(document).on("click",".imagenn",function(){
+   var url = $(this).attr("data-url");
+   var id = $(this).attr("data-id");
+
+    $.ajax({
+
+	    url: url,
+	    type: "POST",
+	    data: "id="+id,
+			success: function(datos){
+
+				$('#foto').html(datos);
+
+			}
+
+		});
+
+   });
+
+
 	/////////////////Fin jquery cliente///////////////////////
 
 
@@ -217,8 +237,6 @@ $(document).ready(function(){
 	});
 
 
-});
-
 	// function validarExtension(){
 
 	// 	var archivo = $(this).files[0].name;
@@ -226,3 +244,5 @@ $(document).ready(function(){
 	// 	alert(archivo);
 			
 	// }
+
+		});
