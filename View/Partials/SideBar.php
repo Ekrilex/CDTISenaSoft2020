@@ -69,13 +69,13 @@
 					<li class="nav-item">
 						<a data-toggle="collapse" href="#base">
 							<i class="fas fa-file-alt"></i>
-							<p>Facturacion</p>
+							<p>Facturación</p>
 							<span class="caret"></span>
 						</a>
 						<div class="collapse" id="base">
 							<ul class="nav nav-collapse">
 								<li>
-									<a href="components/avatars.html">
+									<a href="<?php echo getUrl('factura','factura','crear')?>">
 										<span class="sub-item">Registrar Factura</span>
 									</a>
 								</li>
