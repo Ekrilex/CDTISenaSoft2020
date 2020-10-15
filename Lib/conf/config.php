@@ -3,7 +3,7 @@
 	//configuracionBaseDeDatos
 	
 	$tipoConexion = "mysql";
-	$dbname = "ProFac2";
+	$dbname = "ProFac";
 	$host = "localhost";
 	$port = "3306";
 	$user= "root";

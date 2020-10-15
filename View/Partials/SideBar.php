@@ -111,7 +111,7 @@
 							</div>
 						</li>
 					<?php }?>
-					<?php if($_SESSION['rol'] == 3 || $_SESSION['rol'] == 2){?>
+					<?php if($_SESSION['rol'] == 3 || $_SESSION['rol'] == 2 || $_SESSION['rol'] == 1){?>
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#forms">
 								<i class="fas fa-pen-square"></i>
@@ -120,14 +120,14 @@
 							</a>
 							<div class="collapse" id="forms">
 								<ul class="nav nav-collapse">
-									<?php if($_SESSION['rol']==3){?>
+									<?php if($_SESSION['rol']==3 || $_SESSION['rol'] == 1){?>
 										<li>
 											<a href="<?php echo getUrl('Producto','Producto','crear')?>">
 												<span class="sub-item">Registrar Producto</span>
 											</a>
 										</li>
 									<?php }?>
-									<?php if($_SESSION['rol']==2 || $_SESSION['rol'] == 3){?>
+									<?php if($_SESSION['rol']==2 || $_SESSION['rol'] == 3 || $_SESSION['rol'] == 1){?>
 										<li>
 											<a href="<?php echo getUrl('Producto','Producto','index')?>">
 												<span class="sub-item">Consultar Producto</span>
