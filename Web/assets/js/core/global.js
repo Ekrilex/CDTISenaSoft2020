@@ -89,6 +89,26 @@ $(document).ready(function(){
 	});
 
 
+  $(document).on("click",".imagenn",function(){
+   var url = $(this).attr("data-url");
+   var id = $(this).attr("data-id");
+
+    $.ajax({
+
+	    url: url,
+	    type: "POST",
+	    data: "id="+id,
+			success: function(datos){
+
+				$('#foto').html(datos);
+
+			}
+
+		});
+
+   });
+
+
 	/////////////////Fin jquery cliente///////////////////////
 
 
@@ -139,8 +159,90 @@ $(document).ready(function(){
 	});
 
 
+	$(document).on("submit", "#formSucursal", function(){
+
+		var retorno = true;
+
+		// var nit = $('#nit').value;
+		// var nombre = $('#nombre').value;
+		// var apellido = $('#apellido').value;
+		// var direccion = $('#direccion').value;
+		// var celular = $('#celular').value;
+		// var correo = $('#correo').value;
+
+		var camposNoVacio = document.getElementsByClassName('novacio');
+
+		//console.log(camposNoVacio);
+
+		//alert('hay campos vacios');
+		var contador = 0;
+
+		for(var i = 0; i<camposNoVacio.length; i++){
+
+			if(camposNoVacio[i].value.length < 1){
+				contador++;
+				retorno = false;
+
+			}
+
+		}
+
+		if(contador > 0){
+			$('#errorVacio').html("<span class='text-danger'>Por Favor no deje Campos Vacios</span>");
+			
+		}
+
+		
+
+		return retorno;
+
+	});
+
+	$(document).on("submit", "#formProducto", function(){
+
+		var retorno = true;
+
+		// var nit = $('#nit').value;
+		// var nombre = $('#nombre').value;
+		// var apellido = $('#apellido').value;
+		// var direccion = $('#direccion').value;
+		// var celular = $('#celular').value;
+		// var correo = $('#correo').value;
+
+		var camposNoVacio = document.getElementsByClassName('novacio');
+
+		//console.log(camposNoVacio);
+
+		//alert('hay campos vacios');
+		var contador = 0;
+
+		for(var i = 0; i<camposNoVacio.length; i++){
+
+			if(camposNoVacio[i].value.length < 1){
+				contador++;
+				retorno = false;
+
+			}
+
+		}
+
+		if(contador > 0){
+			$('#errorVacio').html("<span class='text-danger'>Por Favor no deje Campos Vacios</span>");
+			
+		}
+		
+
+		return retorno;
+
+	});
 
 
+	// function validarExtension(){
 
+	// 	var archivo = $(this).files[0].name;
 
-});
+	// 	alert(archivo);
+			
+	// }
+
+		});

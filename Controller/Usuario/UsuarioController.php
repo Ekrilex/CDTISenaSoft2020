@@ -57,7 +57,8 @@ class UsuarioController
 		$usuario->usu_correo=$_REQUEST['usu_correo'];
 		$usuario->usu_sucursal=$_REQUEST['usu_sucursal'];
 		
-		$sql="INSERT INTO tbl_usuario VALUES('$id','".$usuario->usu_nombre."','".$usuario->$usu_apelld."','".$usuario->usu_login."','".$usuario->usu_passwod."','$usuario->usu_telefn','".$usuario->usu_direcc."','$usuario->usu_rolid','1','".$usuario->usu_correo."','$usuario->usu_sucursal')";
+
+		$sql="INSERT INTO tbl_usuario VALUES('$id','".$usuario->usu_nombre."','".$usuario->usu_apelld."','".$usuario->usu_login."','".$usuario->usu_passwod."','$usuario->usu_telefn','".$usuario->usu_direcc."','$usuario->usu_rolid','1','".$usuario->usu_correo."','$usuario->usu_sucursal')";
 		$usuarios=$this->model->insertar($sql);	
 
 		redirect(getUrl("Usuario","Usuario","index"));

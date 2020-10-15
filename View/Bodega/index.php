@@ -53,40 +53,40 @@
 				<td><?php echo $r; ?></td>
 				<td><?php echo $value->pro_stock; ?></td>
 
-				<td> <a class="btn btn-info" href="<?php echo getUrl('Usuario','Usuario','getUpdate', array('usu_id' => $value->usu_id)) ?>" data-url='<?php echo getUrl("Usuario","Usuario","postDelete",false,"ajax") ?>'>Editar</a>
-					<a class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Foto</a></td>
+				<td> <a class="btn btn-info">Editar</a>
+				<button type="button" class="btn btn-primary imagenn" data-toggle="modal" data-target="#imagenP" data-url="<?php echo getUrl('Bodega','Bodega','imagen',false,'ajax'); ?>" data-id="<?php echo $value->pro_id; ?>">Ver imagen</button></td>
 			</tr>
 		<?php endforeach; ?>
 		
 	</tbody>
 </table>
 
-    <form>
+    <form action="<?php echo getUrl("Bodega","Bodega","csv") ?>"  method="POST" enctype="multipart/form-data">
     	<div class="container card bg-primary col-md-5">
   <div class="form-group">
     <h3 class="text-white text-align-center">Seleccionar archivo csv</h3>
-    <input type="file" class="form-control " id="exampleFormControlFile1">
+    <input type="file" class="form-control " name="cargar">
+  <input type="submit" name="enviar">
   </div>
 </div>
 </form>
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="imagenP"  tabindex="-1" aria-labelledby="imagenP" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title">Imagen del producto</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <div id="foto"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
