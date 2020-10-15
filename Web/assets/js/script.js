@@ -9,45 +9,46 @@ function inicializa_XHR(){
 }
 
 
-function getCliente(idCli){
+function getCliente(){
 
-	/*inicializa_XHR();
+	inicializa_XHR();
+
+
+	idCli=document.getElementById('cedula').value;
+
 
 	peticion_http.onreadystatechange=function(){ 
 
 		if (peticion_http.readyState==4) {
 			if (peticion_http.status==200) {
-
+				
 				const data = JSON.parse(peticion_http.responseText);
-				document.getElementById('titulo').innerHTML="Consultar Departamento";
-				document.getElementById('ttlinks').innerHTML="<a href='main.php?c=departamento'>Departamento</a>";
-				document.getElementById('ttbread').innerHTML=data['dep_nombre'];
+				
 				
 
-				document.FormEdit.idDepto.value=data['dep_id'];
-				document.FormEdit.id.value=data['dep_id'];
+						document.getElementById('nombre').value=data[0]['cli_nombre'];
+						document.getElementById('telefono').value=data[0]['cli_telefn'];
+					
+
+				
+
+				
+
+				
 
 
-				document.FormEdit.nombre.value=data['dep_nombre'];
-				document.FormEdit.nombre.disabled = true;
-				var deleteDepto=document.getElementById('deleteDepto');
-				deleteDepto.innerHTML='';
-				document.getElementById('btnSave').style.display = 'none'; //Oculta el botón de guardar cambios del modal
 
-
-				//responseText atributo que almacena la respuesta del servidor
-
+				
 			}
 		}
 
 	};
 
 
-	peticion_http.open('POST','ajax.php?modulo=Cliente&modulo=Cliente&funcion=consultarCliente',true);
+	peticion_http.open('GET','ajax.php?modulo=cliente&controlador=cliente&funcion=getCliente&cli_nit='+idCli,true);
 	peticion_http.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	peticion_http.send('c=departamento&a=crud&id='+idDepto);*/
-
-	alert("Hola");
-
+	peticion_http.send(null);
+	
+	
 
 }

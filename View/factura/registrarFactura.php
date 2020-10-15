@@ -28,7 +28,7 @@
 				<div class="card-title">Registrar Factura</div>
 			</div>
 			<div class="card-body">
-				<form action="<?php echo getUrl('factura','factura','guardar')?>" method="POST">
+				<form action="<?php echo getUrl('factura','factura','guardar')?>" method="POST" name="formFac">
 
 				<div class="form-row">
 					<div class="form-group col-md-4">
@@ -49,19 +49,19 @@
 				<div class="form-row">
 					<div class="form-group col-md-3">
 						<label>Cédula Cliente</label>
-						<input type="mail" class="form-control" name="fac_clinit" placeholder="Identificación Cliente" onblur="getCliente(this);">
+						<input  type="number" class="form-control" name="fac_clinit" value="123456789" placeholder="Identificación Cliente" id="cedula" onblur="getCliente();">
 					</div> 
 					<div class="form-group col-md-4">
 						<label>Nombre Cliente</label>
-						<input type="text" class="form-control" name="fac_clinom" placeholder="Nombre Cliente">
+						<input type="text" class="form-control" name="fac_clinom" placeholder="Nombre Cliente" id="nombre">
 					</div> 
 					<div class="form-group col-md-3">
 						<label>Telefono Cliente</label>
-						<input type="mail" class="form-control" name="fac_clitel" placeholder="Telefono de contacto">
+						<input type="mail" class="form-control" name="fac_clitel" placeholder="Telefono de contacto" id="telefono">
 					</div>
 					<div class="form-group col-md-2">
 
-						<a class="btn btn-success" href="<?php echo getUrl('cliente','cliente','crear')?>" style="visibility:hidden;">Crear Cliente</a>
+						<a id="btn" class="btn btn-success" href="<?php echo getUrl('cliente','cliente','crear')?>">Nuevo Cliente</a>
 						<!--para hacerlo visible document.getElementById('pepe').style.visibility = 'visible'; -->
 					</div>
 					
