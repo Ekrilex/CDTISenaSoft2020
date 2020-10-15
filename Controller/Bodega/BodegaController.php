@@ -25,7 +25,7 @@ class BodegaController
            $des=$val->usu_sucursal;
         }
 
-		$sql="SELECT * FROM tbl_producto, tbl_bodega, tbl_detalle_producto_bodega WHERE dpb_bodid=$des AND dpb_procod=pro_codigo";
+		$sql="SELECT * FROM tbl_producto,tbl_detalle_producto_bodega, tbl_usuario, tbl_estado WHERE pro_usu = usu_id AND pro_estado = est_id AND pro_id = dpb_procod AND dpb_bodid = ".$_SESSION['bodega']."";
 		
          //$sql="SELECT * FROM tbl_producto";
 		$bodega=$this->model->consultar($sql);
