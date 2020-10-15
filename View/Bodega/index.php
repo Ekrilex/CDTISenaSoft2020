@@ -21,7 +21,23 @@
 			</li>
 		</ul>
 	</div>
+			<?php 
 
+			if(isset($_SESSION['cambios'])){
+
+			?>
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<?php echo $_SESSION['cambios'];?>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+			<?php 
+
+			}
+			unset($_SESSION['cambios']);
+			?>
 <table id="example" class=" data-table display table" style="width:100%">
 	<thead class="thead-dark">
 		<tr>
@@ -40,11 +56,11 @@
 				<td><?php echo $value->pro_nombre; ?></td>
 				<?php  
 				
-				if($value->pro_estado == 4){
+				if($value->pro_estado == 3){
 				   $r="Disponible";
-				}else if ($value->pro_estado == 5){
+				}else if ($value->pro_estado == 4){
                     $r="Pocas unidades";
-				}else if ($value->pro_estado == 6) {
+				}else if ($value->pro_estado == 5) {
 					$r="Agotado";
 				}
 
